@@ -2,7 +2,7 @@ package hangman.model;
 
 public class PowerScore implements GameScore{
 
-    int score;
+     private int score;
 
     public PowerScore(){
         score = 0;
@@ -27,6 +27,16 @@ public class PowerScore implements GameScore{
         if (score > 500){
             score = 500;
         }
+        return score;
+    }
+
+    @Override
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    @Override
+    public int getScore() {
         return score;
     }
 }

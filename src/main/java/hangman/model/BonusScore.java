@@ -27,4 +27,14 @@ public class BonusScore implements GameScore {
         }
         return score;
     }
+
+    @Override
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    @Override
+    public int getScore() {
+        return score;
+    }
 }

@@ -33,6 +33,7 @@ public class GUI {
     private Language language;
     private HangmanDictionary dictionary;
     private HangmanPanel hangmanPanel;
+    private GameScore gameScore;
 
     private MainFrameController mainFrameController;
 
@@ -42,6 +43,7 @@ public class GUI {
     private CreditsController creditsController;
     private GameOverController gameoverController;
     private HighScoreController highScoreController;
+
 
     // Use Factory method
     public GUI(HangmanFactoryMethod factoryMethod) {
@@ -79,7 +81,7 @@ public class GUI {
                 mainFrameController
         );
 
-        GameModel gameModel = new GameModel(dictionary);
+        GameModel gameModel = new GameModel(dictionary, gameScore);
         gameController = new GameController(
                 new GamePanel(gameModel.getCharacterSet(), hangmanPanel, language),
                 gameModel,

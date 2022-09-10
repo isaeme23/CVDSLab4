@@ -20,6 +20,21 @@ public class OriginalScore implements GameScore{
         if (incorrectCount > gameModel.getIncorrectCount()){
             score = gameModel.getScore() - 10;
         }
+        if (score < 0){
+            score = 0;
+        } else if (score > 100){
+            score = 100;
+        }
+        return score;
+    }
+
+    @Override
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    @Override
+    public int getScore() {
         return score;
     }
 }

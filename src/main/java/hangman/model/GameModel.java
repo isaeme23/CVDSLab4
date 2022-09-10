@@ -22,7 +22,7 @@ public class GameModel {
     private int incorrectCount;
     private int correctCount;
     private LocalDateTime dateTime;
-    private int gameScore;
+    private GameScore gameScore;
     private int[] lettersUsed;
     
     
@@ -34,14 +34,14 @@ public class GameModel {
     
     
    
-    public GameModel(HangmanDictionary dictionary){
+    public GameModel(HangmanDictionary dictionary, GameScore score){
         //this.dictionary = new EnglishDictionaryDataSource();
         this.dictionary=dictionary;
         randomWord = selectRandomWord();
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        gameScore = score;
         
     }
     
@@ -52,7 +52,7 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        gameScore.setScore(100);
     }
 
     //setDateTime
@@ -73,9 +73,10 @@ public class GameModel {
             }
         }
         if(positions.size() == 0){
+            gameScore.calculateScore(correctCount, incorrectCount + 1, this);
             incorrectCount++;
-            gameScore -= 10;
         } else {
+            gameScore.calculateScore(correctCount + positions.size(), incorrectCount, this);
             correctCount += positions.size();
         }
         return positions;
@@ -92,13 +93,13 @@ public class GameModel {
     //setScore
     //purpose: sets score value to points
     public void setScore(int score) {
-        this.gameScore = score;
+        this.gameScore.setScore(score);
     }
     
     //getScore
     //purpose: returns current score value
     public int getScore() {
-        return gameScore;
+        return gameScore.getScore();
     }
 
     //name: selectRandomWord()
@@ -124,13 +125,13 @@ public class GameModel {
     //method: getGameScore
     //purpose: return current score
     public int getGameScore() {
-        return gameScore;
+        return gameScore.getScore();
     }
 
     //method: setGameScore
     //purpose: set current game score
     public void setGameScore(int gameScore) {
-        this.gameScore = gameScore;
+        this.gameScore.setScore(gameScore);
     }
     
     //method: getWordLength
