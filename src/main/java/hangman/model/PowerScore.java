@@ -19,9 +19,9 @@ public class PowerScore implements GameScore{
     @Override
     public int calculateScore(int correctCount, int incorrectCount, GameModel gameModel) {
         if (correctCount > gameModel.getCorrectCount()){
-            score = (int)Math.pow(5, correctCount - gameModel.getCorrectCount());
+            score = (int)Math.pow(5, correctCount - gameModel.getCorrectCount()) + gameModel.getScore();
         }
-        if (incorrectCount > gameModel.getIncorrectCount()){
+        if (incorrectCount > gameModel.getIncorrectCount() && gameModel.getScore() >= 8){
             score = gameModel.getScore() - 8;
         }
         if (score > 500){
