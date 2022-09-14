@@ -22,7 +22,7 @@ public class BonusScore implements GameScore {
         if (correctCount > gameModel.getCorrectCount()){
             score = gameModel.getScore() + 10;
         }
-        if (incorrectCount > gameModel.getCorrectCount() && gameModel.getScore() >= 5){
+        if (incorrectCount > gameModel.getIncorrectCount() && gameModel.getScore() >= 5){
             score = gameModel.getScore() - 5;
         }
         return score;
@@ -36,5 +36,10 @@ public class BonusScore implements GameScore {
     @Override
     public int getScore() {
         return score;
+    }
+
+    @Override
+    public void reset(){
+        score = 0;
     }
 }

@@ -37,4 +37,9 @@ public class OriginalScore implements GameScore{
     public int getScore() {
         return score;
     }
+
+    @Override
+    public void reset(){
+        score = 100;
+    }
 }

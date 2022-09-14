@@ -39,4 +39,9 @@ public class PowerScore implements GameScore{
     public int getScore() {
         return score;
     }
+
+    @Override
+    public void reset(){
+        score = 0;
+    }
 }

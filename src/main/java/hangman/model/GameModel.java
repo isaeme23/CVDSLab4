@@ -41,7 +41,7 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = score;
+        this.gameScore = score;
         
     }
     
@@ -52,7 +52,7 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore.setScore(100);
+        gameScore.reset();
     }
 
     //setDateTime

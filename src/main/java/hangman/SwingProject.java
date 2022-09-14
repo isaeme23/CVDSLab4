@@ -26,12 +26,20 @@
 */
 package hangman;
 
-
+import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
+import hangman.model.English;
+import hangman.model.GameScore;
+import hangman.model.Language;
+import hangman.model.OriginalScore;
+import hangman.model.dictionary.EnglishDictionaryDataSource;
+import hangman.model.dictionary.HangmanDictionary;
 import hangman.setup.factoryMethod.HangmanDefaultFactoryMethod;
 import hangman.setup.guice.HangmanFactoryServices;
+import hangman.view.HangmanPanel;
+import hangman.view.HangmanStickmanPanel;
 
 public class SwingProject {
 
@@ -56,7 +64,7 @@ public class SwingProject {
     //method: main
     //purpose: the entry-point to our application
     public static void main(String[] args) {
-        createGUIUsingFactoryMethod().play();
+        createGUIUsingGuice().play();
     }
 
 }
